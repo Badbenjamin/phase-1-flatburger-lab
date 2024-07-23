@@ -26,11 +26,14 @@ const addToCart = () => {
     
     // this is the elment that our form submission number will be added to.
     const numberInCartCountElement = document.getElementById('number-in-cart-count')
+    console.log("cart count", numberInCartCountElement)
     // input element that has id 'number-to-add' numberToAddElement.value will return the form input
     const numberToAddInputElement = document.getElementById('number-to-add');
+    console.log("input value element", numberToAddInputElement)
+    console.log("number to add value", numberToAddInputElement.value);
     // console.log(numberInCartCountElement.textContent)
     numberInCartCountElement.textContent = Number(numberToAddInputElement.value) + Number(numberInCartCountElement.textContent);
-    console.log(numberInCartCountElement.textContent)
+    
 
 
 
@@ -50,6 +53,7 @@ const addBurgerNamesToMenu = () => {
         burgers.forEach(burger => {
             // for each element (burger) the forEach creates a span element and adds the name attribute to the text content
             const spanElement = document.createElement('span');
+            // the name value from the object is added to the text of the span element
             spanElement.textContent = burger.name
             // add the span element to the restarauntMenu div
             // restarauntMenu.appendChild(spanElement);
@@ -78,7 +82,8 @@ const addBurgerNamesToMenu = () => {
     displayBurgerDetails(burgers[0]);
 });
 }
-
+// main function contains DOMContentLoaded event listener. All funcitons involving DOM manipulation are invoked after the event
+// listener has fired. 
 const main = () => {
     document.addEventListener("DOMContentLoaded", () => {
         addBurgerNamesToMenu()
